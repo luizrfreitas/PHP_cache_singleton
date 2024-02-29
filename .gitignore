@@ -1,0 +1,8 @@
+# Environment
+.env
+
+# Docker configuration
+.docker/db
+
+# IDE
+.vscode/

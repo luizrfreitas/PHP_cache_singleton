@@ -1,0 +1,17 @@
+FROM php:8.3.3-fpm
+
+RUN docker-php-ext-install pdo pdo_mysql
+
+RUN apt-get update && apt-get install -y \
+    git \
+    curl \
+    libpng-dev \
+    libjpeg-dev \
+    libfreetype6-dev \
+    libzip-dev \
+    zip \
+    unzip \
+    && docker-php-ext-configure gd --with-freetype --with-jpeg \
+    && apt-get clean
+
+COPY --from=composer/composer:latest-bin /composer /usr/bin/composer

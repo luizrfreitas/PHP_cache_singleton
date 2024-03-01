@@ -18,4 +18,6 @@ COPY ./.docker/php/xdebug/99-xdebug.ini /usr/local/etc/php/conf.d
 RUN pecl install xdebug
 RUN docker-php-ext-enable xdebug
 
+RUN pickle install redis
+
 COPY --from=composer/composer:latest-bin /composer /usr/bin/composer

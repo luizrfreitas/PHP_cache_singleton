@@ -14,4 +14,6 @@ RUN apt-get update && apt-get install -y \
     && docker-php-ext-configure gd --with-freetype --with-jpeg \
     && apt-get clean
 
+RUN pickle install redis
+
 COPY --from=composer/composer:latest-bin /composer /usr/bin/composer

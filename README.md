@@ -1,14 +1,7 @@
-# Default PHP CRUD
+# PHP Cache Singleton
 
 ## Introduction
-In an effort to standardize PHP projects, this repository encapsulates essential components like Composer, Nginx, MySQL, and more into one standardized repository.
+An example of usage the design pattern Singleton into a cache service using Redis.
 
-## Installation
-Before proceeding with the installation, replace the `example.env` file with the actual `.env` file.
-
-Currently, there are two environment options: development and production. You can use the Makefile to build both environments, either with `build-project-dev` or `build-project-prod`.
-
-## Supported Services
-* PHP 8.3
-* MySQL Server
-* Nginx
+## Structure
+The base structure was based on the template [Default PHP Crud](https://github.com/luizrfreitas/default-php-crud), and adds the services of Redis, and a basic folder structure for PHP application.

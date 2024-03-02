@@ -18,6 +18,9 @@ services:
       - "9000:9000"
     volumes:
       - ./app:/var/www/html/app
+    depends_on:
+      - db
+      - cache
 
   db:
     tty: true
@@ -35,6 +38,7 @@ services:
 
   cache:
     image: redis:bookworm
+    container_name: cache
     tty: true
     ports:
       - "6379:6379"

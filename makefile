@@ -13,16 +13,24 @@ RED := "\033[1;31m"
 # help:
 # 	echo "Hello, World!"
 
-build-project-dev:
+build-dev:
 	@echo -e $(GREEN)"Building services trough docker. Environment: development"$(RESET)
 	@docker-compose -f docker-compose.prod.yml -f docker-compose.dev.yml up -d --build
 	@echo -e $(GREEN)"Project built!"$(RESET)
 
-build-project-prod:
+build-prod:
 	@echo $(GREEN)"Building services trough docker. Environment: production"$(RESET)
 	@docker-compose -f docker-compose.prod.yml up -d --build
 	@echo -e $(GREEN)"Project built!"$(RESET)
 
-restart-all:
+restart:
 	@echo $(GREEN)"Restarting all continars"$(RESET)
-	@docker container restart app web db
+	@docker container restart app web db cache
+
+stop:
+	@echo $(GREEN)"Stoping containers"$(RESET)
+	@docker container stop app web db cache
+
+start:
+	@echo $(GREEN)"Starting containers"$(RESET)
+	@docker container start app web db cache

@@ -17,7 +17,8 @@ services:
     ports:
       - "9000:9000"
     volumes:
-      - ./app:/var/www/html/app
+      - ./:/var/www/html/app
+    working_dir: /var/www/html/app
     depends_on:
       - db
       - cache

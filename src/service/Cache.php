@@ -1,6 +1,6 @@
 <?php
 
-namespace src\service;
+namespace CacheSingleton\Service;
 
 final class Cache {
 
@@ -31,25 +31,13 @@ final class Cache {
         return self::$instance;
     }
 
-    public function set(string $key, string $value): void
+    public function set(string $key, string $value): bool
     {
-        $this->connection->set($key, $value);
+        return $this->connection->set($key, $value);
     }
 
-    public function get(string $key): void
+    public function get(string $key): string
     {
-        $this->connection->get($key, $value);
+        return $this->connection->get($key);
     }
-
-    public function delete(string $key): void
-    {
-        $this->connection->delete($key);
-    }
-
-    public function flushAll(): void
-    {
-        $this->connection->flushAll();
-    }
-
-
 }

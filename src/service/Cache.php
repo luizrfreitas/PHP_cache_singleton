@@ -1,5 +1,7 @@
 <?php
 
+require_once __DIR__ . "/../config.php";
+
 namespace CacheSingleton\Service;
 
 final class Cache {
@@ -10,7 +12,7 @@ final class Cache {
     protected function __construct() {
         if (!isset(self::$instance)) {
             $this->connection = new \Redis();
-            $this->connection->connect('cache', 6379);
+            $this->connection->connect($_ENV['CACHE_HOST'], $_ENV['CACHE_PORT']);
         }
     }
 

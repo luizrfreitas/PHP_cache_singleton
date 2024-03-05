@@ -9,3 +9,4 @@ The base structure was based on the template [Default PHP Crud](https://github.c
 ## References
 * [PHPRedis](https://github.com/phpredis/phpredis)
 * [Redis](https://redis.io/docs/)
+* [Dotenv](https://github.com/vlucas/phpdotenv)

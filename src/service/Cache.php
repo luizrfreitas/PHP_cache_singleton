@@ -1,15 +1,13 @@
 <?php
 
-require_once __DIR__ . "/../config.php";
-
 namespace CacheSingleton\Service;
 
-final class Cache {
+final class Cache extends Service {
 
     private static $instance = null;
     private $connection = null;
 
-    protected function __construct() {
+    private function __construct() {
         if (!isset(self::$instance)) {
             $this->connection = new \Redis();
             $this->connection->connect($_ENV['CACHE_HOST'], $_ENV['CACHE_PORT']);

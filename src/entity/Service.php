@@ -1,6 +1,6 @@
 <?php
 
-namespace CacheSingleton\Service;
+namespace CacheSingleton\Entity;
 
 require_once __DIR__ . "/../../config.php";
 

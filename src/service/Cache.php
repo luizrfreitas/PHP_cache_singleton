@@ -2,6 +2,8 @@
 
 namespace CacheSingleton\Service;
 
+use CacheSingleton\Entity\Service;
+
 final class Cache extends Service {
 
     private static $instance = null;
@@ -19,7 +21,7 @@ final class Cache extends Service {
      */
     public function __wakeup(): void
     {
-        throw new \Exception("Cannot unserialize a singleton.");
+        throw new \Exception("Cannot unserialize a singleton!");
     }
 
     public static function getInstance(): Cache
@@ -39,5 +41,15 @@ final class Cache extends Service {
     public function get(string $key): string
     {
         return $this->connection->get($key);
+    }
+
+    public function del(string $key): void
+    {
+        $this->connection->del($key);
+    }
+
+    public function flushAll(): void
+    {
+        $this->connection->flushAll();
     }
 }

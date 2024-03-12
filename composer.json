@@ -1,9 +1,7 @@
 {
     "autoload": {
         "psr-4": {
-            "CacheSingleton\\Service\\": "src/service/",
-            "CacheSingleton\\Module\\": "src/module/",
-            "CacheSingleton\\Entity\\": "src/entity/"
+            "CacheSingleton\\": "src/"
         }
     },
     "require": {

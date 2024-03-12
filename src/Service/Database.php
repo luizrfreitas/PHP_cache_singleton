@@ -5,12 +5,13 @@ namespace CacheSingleton\Service;
 use PDO;
 use CacheSingleton\Entity\Service;
 
-final class Database extends Service {
-
+final class Database extends Service
+{
     private static $instance = null;
     private $connection = null;
 
-    private function __construct() {
+    private function __construct()
+    {
         if (!isset(self::$instance)) {
             $this->connection = new PDO(
                 "mysql:host=db;dbname={$_ENV['DB_DATABASE']}",
@@ -36,5 +37,13 @@ final class Database extends Service {
         }
 
         return self::$instance;
+    }
+
+    public function fetch(string $query): array
+    {
+        $statement = $this->connection->prepare($query);
+        $statement->execute();
+
+        return $statement->fetchAll(PDO::FETCH_ASSOC);
     }
 }

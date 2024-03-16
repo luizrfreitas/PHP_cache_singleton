@@ -20,8 +20,8 @@ final class UserServiceTest extends CustomTest
 
         $this->assertInstanceOf(User::class, $data);
         $this->assertEquals($id, $data->getId());
-        $this->assertEquals($id, $data->getName());
-        $this->assertEquals($id, $data->getEmail());
+        $this->assertEquals($name, $data->getName());
+        $this->assertEquals($email, $data->getEmail());
     }
 
     // TODO: testParseArrayToUserWithNotEnoughKeys(): void

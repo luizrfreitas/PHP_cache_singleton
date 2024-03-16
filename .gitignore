@@ -9,3 +9,6 @@
 
 # PHP
 vendor
+
+# PHPunit
+.phpunit.result.cache

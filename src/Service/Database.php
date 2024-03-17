@@ -39,11 +39,16 @@ final class Database extends Service
         return self::$instance;
     }
 
-    public function fetch(string $query): array
+    public function executeInsert(string $table, array $columns, array $values): string
     {
-        $statement = $this->connection->prepare($query);
-        $statement->execute();
+        $columnsImplode = implode(',', $columns);
+        $valuesImplode = implode(',', $values);
 
-        return $statement->fetchAll(PDO::FETCH_ASSOC);
+        $query = "INSERT INTO {$table} ({$columnsImplode}) VALUES ('2', 'teste', 'teste');";
+
+        $stmt = $this->connection->prepare($query);
+        $stmt->execute();
+
+        return $this->connection->lastInsertId();
     }
 }

@@ -20,4 +20,9 @@ class UserController
     {
         return $this->userModel->getById($id);
     }
+
+    public function createNewUser(array $data): string
+    {
+        return $this->userModel->createNewUser($data);
+    }
 }

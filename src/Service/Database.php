@@ -42,13 +42,21 @@ final class Database extends Service
     public function executeInsert(string $table, array $columns, array $values): string
     {
         $columnsImplode = implode(',', $columns);
-        $valuesImplode = implode(',', $values);
+        $valuesImplode = $this->formatValuesArrayToString($values);
 
-        $query = "INSERT INTO {$table} ({$columnsImplode}) VALUES ('2', 'teste', 'teste');";
+        $query = "INSERT INTO {$table} ({$columnsImplode}) VALUES ({$valuesImplode});";
 
         $stmt = $this->connection->prepare($query);
         $stmt->execute();
 
         return $this->connection->lastInsertId();
+    }
+
+    private function formatValuesArrayToString(array $array): string
+    {
+        foreach ($array as &$value) {
+            $value = "'{$value}'";
+        }
+        return implode(',', $array);
     }
 }

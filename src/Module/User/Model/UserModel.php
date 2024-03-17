@@ -25,7 +25,6 @@ class UserModel {
     public function createNewUser(array $data): string
     {
         // TODO: $validatedData = $this->service->validateDataToUser($data);
-        $userToInsert = $this->service->parseArrayToUser($data);
-        return $this->table->insertUser($userToInsert);
+        return $this->table->insertUser($data);
     }
 }

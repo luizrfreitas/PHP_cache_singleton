@@ -16,7 +16,7 @@ class UserController
         $this->userService = new UserService();
     }
 
-    public function getUser(string $id): User
+    public function getUserById(string $id): User
     {
         return $this->userModel->getById($id);
     }

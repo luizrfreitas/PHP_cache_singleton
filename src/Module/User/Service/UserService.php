@@ -14,7 +14,6 @@ class UserService
     public function parseArrayToUser(array $data): User
     {
         return new User(
-            $data['id'],
             $data['name'],
             $data['email']
         );

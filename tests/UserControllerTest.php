@@ -9,7 +9,6 @@ final class UserControllerTest extends CustomTest
     {
         $userController = new UserController();
         $user = $userController->createNewUser([
-            'id' => 2,
             'name' => 'teste',
             'email' => 'test'
         ]);

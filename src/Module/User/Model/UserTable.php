@@ -8,8 +8,9 @@ use CacheSingleton\Module\User\User;
 class UserTable
 {
     public const TABLE = 'users';
+
+    public const PRIMARY_KEY_ID = 'id';
     public const COLUMNS = [
-        'id',
         'name',
         'email'
     ];
@@ -19,12 +20,12 @@ class UserTable
         // Construct placeholder.
     }
 
-    public function insertUser(User $user): string
+    public function insertUser(array $data): string
     {
         return Database::getInstance()->executeInsert(
             self::TABLE,
             self::COLUMNS,
-            $user->__toArray()
+            $data
         );
     }
 }

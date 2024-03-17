@@ -10,8 +10,7 @@ class User extends AbstractEntity {
     private $name;
     private $email;
 
-    public function __construct($id, $name, $email) {
-        $this->id = $id;
+    public function __construct($name, $email) {
         $this->name = $name;
         $this->email = $email;
     }
@@ -24,11 +23,6 @@ class User extends AbstractEntity {
     public function getId(): string
     {
         return $this->id;
-    }
-
-    public function setId(string $id): void
-    {
-        $this->id = $id;
     }
 
     public function getName(): string

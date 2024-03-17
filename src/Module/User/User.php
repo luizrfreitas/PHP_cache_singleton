@@ -16,6 +16,11 @@ class User extends AbstractEntity {
         $this->email = $email;
     }
 
+    public function __toArray(): array
+    {
+        return get_object_vars($this);
+    }
+
     public function getId(): string
     {
         return $this->id;

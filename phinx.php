@@ -11,7 +11,7 @@ return
     ],
     'environments' => [
         'default_migration_table' => 'phinxlog',
-        'default_environment' => 'development',
+        'default_environment' => $_ENV['ENVIRONMENT'],
         'production' => [
             'adapter' => 'mysql',
             'host' => 'localhost',
@@ -23,20 +23,20 @@ return
         ],
         'development' => [
             'adapter' => 'mysql',
-            'host' => 'db',
+            'host' => $_ENV['DB_NAME'],
             'name' => $_ENV['DB_DATABASE'],
             'user' => $_ENV['DB_USER'],
             'pass' => $_ENV['DB_PASSWORD'],
-            'port' => '3306',
+            'port' => $_ENV['DB_PORT'],
             'charset' => 'utf8',
         ],
         'testing' => [
             'adapter' => 'mysql',
             'host' => 'localhost',
-            'name' => 'testing_db',
-            'user' => 'root',
-            'pass' => '',
-            'port' => '3306',
+            'name' => 'database_test',
+            'user' => 'admin',
+            'pass' => 'admin',
+            'port' => 3307,
             'charset' => 'utf8',
         ]
     ],

@@ -3,6 +3,7 @@
 
 # Docker configuration
 .docker/db
+.docker/db_test
 
 # IDE
 .vscode/

@@ -14,7 +14,7 @@ final class Database extends Service
     {
         if (!isset(self::$instance)) {
             $this->connection = new PDO(
-                "mysql:host=db;dbname={$_ENV['DB_DATABASE']}",
+                "mysql:dbname={$_ENV['DB_DATABASE']};host={$_ENV['DB_NAME']};port={$_ENV['DB_PORT']}",
                 $_ENV['DB_USER'],
                 $_ENV['DB_PASSWORD']
             );

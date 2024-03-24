@@ -32,11 +32,11 @@ return
         ],
         'testing' => [
             'adapter' => 'mysql',
-            'host' => 'localhost',
-            'name' => 'database_test',
-            'user' => 'admin',
-            'pass' => 'admin',
-            'port' => 3307,
+            'host' => $_ENV['DB_NAME_TEST'],
+            'name' => $_ENV['DB_DATABASE_TEST'],
+            'user' => $_ENV['DB_USER'],
+            'pass' => $_ENV['DB_PASSWORD'],
+            'port' => $_ENV['DB_PORT_TEST'],
             'charset' => 'utf8',
         ]
     ],

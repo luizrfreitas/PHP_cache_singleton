@@ -34,3 +34,13 @@ stop:
 start:
 	@echo $(GREEN)"Starting containers"$(RESET)
 	@docker container start app web db cache
+
+test:
+	@echo $(GREEN)"Starting tests..."$(RESET)
+	@echo $(GREEN)"Migrating testing database..."$(RESET)
+	@docker exec app ./vendor/bin/phinx migrate -e testing > /dev/null 2>&1
+	@echo $(GREEN)"Executing tests"$(RESET)
+	@docker exec app ./vendor/bin/phpunit
+	@echo $(GREEN)"Rollbacking testing database..."$(RESET)
+	@docker exec app ./vendor/bin/phinx rollback -t 0 -e testing > /dev/null 2>&1
+	@echo $(GREEN)"Test finished!"$(RESET)

@@ -29,6 +29,6 @@ final class CreateTableUser extends AbstractMigration
 
     public function down(): void
     {
-        $this->execute("DROP TABLE IF EXISTS `user`;");
+        $this->execute("DROP TABLE IF EXISTS `users`;");
     }
 }

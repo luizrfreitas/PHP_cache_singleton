@@ -44,17 +44,3 @@ services:
     ports:
       - "6379:6379"
     restart: always
-
-  db_test:
-    tty: true
-    image: mysql:latest
-    container_name: "${DB_NAME_TEST}"
-    environment:
-      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
-      MYSQL_DATABASE: ${DB_DATABASE_TEST}
-      MYSQL_USER: ${DB_USER}
-      MYSQL_PASSWORD: ${DB_PASSWORD}
-    ports:
-      - "${DB_PORT_TEST}:3307"
-    volumes:
-      - ./.docker/db_test:/var/lib/mysql
